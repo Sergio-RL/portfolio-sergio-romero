@@ -1,0 +1,57 @@
+@import "../../sass/shared.scss";
+
+.projects_view {
+  @include element("projects_list") {
+    @include element("project_card") {
+      cursor: pointer;
+      text-align: center;
+      transition: transform 0.25s;
+      margin-bottom: 1em;
+      -moz-column-break-inside: break;
+      -webkit-column-break-inside: break;
+      break-inside: avoid;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      h2,
+      p,
+      a {
+        font-family: "Rubik", sans-serif;
+      }
+
+      @include element("title") {
+        color: white;
+        font-size: 1.2em;
+        padding: 0.8em 0;
+        background-color: $primary_color;
+        border-top-right-radius: 9px;
+        border-top-left-radius: 9px;
+      }
+
+      @include element("content") {
+        color: $secondary_color;
+        background-color: white;
+        border-bottom-right-radius: 9px;
+        border-bottom-left-radius: 9px;
+        padding: 1em;
+
+        @include element("description") {
+          margin-bottom: 1em 0;
+        }
+
+        @include element("link_btn") {
+          padding: 0.5em;
+          margin: 2em 1em 0.3em;
+          background-color: $primary_color;
+
+          a {
+            color: white;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}

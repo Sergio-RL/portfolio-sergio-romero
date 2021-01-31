@@ -1,0 +1,14 @@
+@mixin element($element) {
+  &__#{$element} {
+    @content;
+  }
+}
+
+@mixin modifier($element) {
+  &--#{$element} {
+    @content;
+  }
+}
+
+$primary_color: #ce2d4f;
+$secondary_color: #084c61;
