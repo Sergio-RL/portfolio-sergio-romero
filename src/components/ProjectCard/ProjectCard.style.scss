@@ -1,5 +1,22 @@
 @import "../../sass/shared.scss";
 
+@mixin collapsible_button {
+  button {
+    width: 100%;
+    border: none;
+    border-bottom-right-radius: 9px;
+    border-bottom-left-radius: 9px;
+    cursor: pointer;
+    padding: 0.5em 0;
+    background-color: white;
+
+    svg {
+      font-size: 1em;
+      fill: $secondary_color;
+    }
+  }
+}
+
 .projects_view {
   @include element("projects_list") {
     @include element("project_card") {
@@ -38,6 +55,18 @@
         border-bottom-right-radius: 9px;
         border-bottom-left-radius: 9px;
         transition: padding 0.2s;
+        overflow: hidden;
+        padding: 2em 2em 0;
+
+        @include modifier("collapsed") {
+          padding: 0;
+          background-color: white;
+          border-bottom-right-radius: 9px;
+          border-bottom-left-radius: 9px;
+          transition: padding 0.2s;
+
+          @include collapsible_button();
+        }
 
         @include element("description") {
           margin-bottom: 1em 0;
@@ -54,18 +83,7 @@
           }
         }
 
-        button {
-          border: none;
-          cursor: pointer;
-          width: 100%;
-          padding: 0.5em 0;
-          background-color: white;
-
-          svg {
-            font-size: 1em;
-            fill: $secondary_color;
-          }
-        }
+        @include collapsible_button();
       }
     }
   }

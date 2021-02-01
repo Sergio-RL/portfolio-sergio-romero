@@ -17,8 +17,9 @@ const ProjectCard = ({ name, description, repoURL, windowWidth }) => {
         </h2>
       </div>
       <div
-        className="projects_view__projects_list__project_card__content"
-        style={{ overflow: "hidden", padding: !collapsed ? "2em 2em 0" : 0 }}
+        className={`projects_view__projects_list__project_card__content${
+          collapsed ? "--collapsed" : ""
+        }`}
       >
         {!collapsed && (
           <>
