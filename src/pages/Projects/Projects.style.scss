@@ -1,5 +1,12 @@
 @import "../../sass/shared.scss";
 
+@mixin columnLayout($cols) {
+  column-count: $cols;
+  -moz-column-count: $cols;
+  -webkit-column-count: $cols;
+  column-gap: 1.5em;
+}
+
 .projects_view {
   display: flex;
   flex-direction: column;
@@ -13,8 +20,8 @@
 
     img {
       width: 100vw;
-      filter: blur(0.3em);
       height: 100vh;
+      filter: blur(0.3em);
     }
   }
 
@@ -33,9 +40,9 @@
   @include element("projects_list") {
     margin: 2em 0;
     width: 60%;
-    column-count: 2;
-    -moz-column-count: 2;
-    -webkit-column-count: 2;
-    column-gap: 1.5em;
+    @include columnLayout(2);
+    @media (max-width: 650px) {
+      @include columnLayout(1);
+    }
   }
 }

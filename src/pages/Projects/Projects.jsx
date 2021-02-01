@@ -1,45 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Projects.style.scss";
 import back from "../../assets/back.png";
-
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
+import { projects_data } from "./constants";
 
 const Projects = () => {
-  const project_cards = [
-    {
-      name: "Adivina Quien",
-      description: "Juego clasico de adivina quien con profes",
-      repoURL: "#",
-    },
-    {
-      name: "Malla docente (Backend)",
-      description:
-        "Proyecto de la parte del servidor de gestion de cursos de docentes",
-      repoURL: "#",
-    },
-    {
-      name: "Expediente clinico",
-      description: "Proyecto que gestiona expedientes clinicos",
-      repoURL: "#",
-    },
-    {
-      name: "Agenda de citas medicas",
-      description:
-        "Proyecto de la parte del cliente para la gestion de citas medicas",
-      repoURL: "#",
-    },
-    {
-      name: "Portafolio de proyectos",
-      description: "Portafolio que kreisi xdxd",
-      repoURL: "#",
-    },
-  ].map(({ name, description, repoURL }, i) => (
-    <ProjectCard
-      key={i}
-      name={name}
-      description={description}
-      repoURL={repoURL}
-    />
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  window.addEventListener("resize", () => {
+    setWindowWidth(window.innerWidth);
+  });
+
+  const project_cards = projects_data.map((data, i) => (
+    <ProjectCard key={i} {...data} windowWidth={windowWidth} />
   ));
 
   return (

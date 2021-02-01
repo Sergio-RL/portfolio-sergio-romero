@@ -3,12 +3,11 @@
 .projects_view {
   @include element("projects_list") {
     @include element("project_card") {
-      cursor: pointer;
       text-align: center;
       transition: transform 0.25s;
       margin-bottom: 1em;
-      -moz-column-break-inside: break;
-      -webkit-column-break-inside: break;
+      -moz-column-break-inside: avoid;
+      -webkit-column-break-inside: avoid;
       break-inside: avoid;
 
       &:hover {
@@ -21,13 +20,16 @@
         font-family: "Rubik", sans-serif;
       }
 
-      @include element("title") {
-        color: white;
-        font-size: 1.2em;
-        padding: 0.8em 0;
+      @include element("header") {
         background-color: $primary_color;
+        padding: 0.8em 0;
         border-top-right-radius: 9px;
         border-top-left-radius: 9px;
+
+        @include element("title") {
+          color: white;
+          font-size: 1.2em;
+        }
       }
 
       @include element("content") {
@@ -35,7 +37,7 @@
         background-color: white;
         border-bottom-right-radius: 9px;
         border-bottom-left-radius: 9px;
-        padding: 1em;
+        transition: padding 0.2s;
 
         @include element("description") {
           margin-bottom: 1em 0;
@@ -49,6 +51,19 @@
           a {
             color: white;
             text-decoration: none;
+          }
+        }
+
+        button {
+          border: none;
+          cursor: pointer;
+          width: 100%;
+          padding: 0.5em 0;
+          background-color: white;
+
+          svg {
+            font-size: 1em;
+            fill: $secondary_color;
           }
         }
       }
