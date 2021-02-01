@@ -9,7 +9,7 @@ const ProjectCard = ({ name, description, repoURL, windowWidth }) => {
     setCollapsed(!collapsed);
   };
 
-  return windowWidth < 650 ? (
+  return windowWidth < 750 ? (
     <div className="projects_view__projects_list__project_card">
       <div className="projects_view__projects_list__project_card__header">
         <h2 className="projects_view__projects_list__project_card__header__title">

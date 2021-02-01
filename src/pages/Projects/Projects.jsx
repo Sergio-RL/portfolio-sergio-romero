@@ -4,7 +4,8 @@ import back from "../../assets/back.png";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 
 const Projects = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(0);
+
   const projects_data = [
     {
       name: "Adivina Quien",
@@ -35,9 +36,12 @@ const Projects = () => {
     },
   ];
 
-  window.addEventListener("resize", () => {
-    setWindowWidth(window.innerWidth);
-  });
+  if (typeof window !== "undefined") {
+    window.addEventListener("resize", () => {
+      setWindowWidth(window.innerWidth);
+    });
+  } else {
+  }
 
   const project_cards = projects_data.map((data, i) => (
     <ProjectCard key={i} {...data} windowWidth={windowWidth} />

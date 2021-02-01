@@ -41,7 +41,7 @@
     margin: 2em 0;
     width: 60%;
     @include columnLayout(2);
-    @media (max-width: 650px) {
+    @media (max-width: 749px) {
       @include columnLayout(1);
     }
   }
